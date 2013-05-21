@@ -1,0 +1,8 @@
+<div>
+  <label class="checkbox">
+    %if item.complete:
+    <input type="checkbox" name="task" checked value="{{ item.id }}"><strike>{{ item }}</strike>
+    %else:
+    <input type="checkbox" name="task" value="{{ item.id }}"> {{ item }}
+    %end
+  </label>
