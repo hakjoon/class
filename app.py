@@ -16,7 +16,9 @@ app = Bottle()
 def index():
     db = shelve.open(shelf_file)
     entries = dict(db)
+    print entries
     entry_list = EntryList(entries)
+    print entry_list.complete
     db.close()
     success = u'Congratulations! You have things to do.'
     return template('index.html', entries=entry_list, success=success, has_entries=True)
@@ -28,11 +30,15 @@ def add_entry():
         error = u'Blank entries are not supported'
         return template('index.html', error=error)
     db = shelve.open(shelf_file)
-    new_entry = Entry(entry)
-    db[id] = new_entry
+    id = str(len(db))
+    new_entry = Entry(entry, id)
+    db[new_entry.id] = new_entry
     db.close()
-    sleep(5)
-    redirect('/')
+    #sleep(5)
+    if request.query.ajax:
+        return new_entry.id
+    else:
+        redirect('/')
 
 @app.post('/complete')
 def complete():
@@ -43,7 +49,7 @@ def complete():
         tsk.complete = True
         db[id] = tsk
     db.close()
-    sleep(5)
+    #sleep(5)
     redirect('/')
 
 @app.route('/static/<filename:path>')
@@ -53,18 +59,24 @@ def send_static(filename):
 class EntryList(object):
     def __init__(self, entries):
         self.entries = entries
-        self.groups = {}
-        grouped = itertools.groupby(entries.values(), lambda x: x.status)
-        for k, g in grouped:
-            self.groups[k] = list(g)
+        self.groups = {
+            'pending':[v for v in entries.values() if not v.complete],
+            'complete':[v for v in entries.values() if v.complete]
+        }
 
     @property
     def pending(self):
-        return self.groups.get('Pending', [])
+        lst = self.groups.get('pending', [])
+        lst = sorted(lst, key=lambda x: x.id)
+        lst.reverse()
+        return lst
 
     @property
     def complete(self):
-        return self.groups.get('Complete', [])
+        lst = self.groups.get('complete', [])
+        lst = sorted(lst, key=lambda x: x.id)
+        lst.reverse()
+        return lst
 
     def __len__(self):
         return len(self.entries)
@@ -73,22 +85,20 @@ class Entry(object):
     complete = False
     message = u''
     complete = False
-
-    @property
-    def status(self):
-        if self.complete:
-            return u'Complete'
-        else:
-            return u'Pending'
+    id = None
 
     def __init__(self, text, id):
         self.message = text
-    
+        self.id = id
+
     @property
-    def id(self):
+    def slug(self):
         return "-".join(self.message.split())
-        
+
     def __unicode__(self):
+        return self.message
+
+    def __repr__(self):
         return self.message
 
 

@@ -36,36 +36,35 @@
 			  </form>
 			</div>
 		  </div>
-          %if has_entries:
-		  <div class="well">
+		  <div id="entry-well" class="well">
 			<form id="items-form" method="post" action="/complete">
-                %if entries.pending:
-                 <fieldset id="entries-pending">
-                   <legend>Pending</legend>
-                   %for item in entries.pending:
-                      %include list.html item=item
-                   %end
-                 </fieldset>
-                %end
-                %if entries.complete:
-                 <fieldset id="entries-complete">
-                   <legend>Completed</legend>
-                   %for item in entries.complete:
-                       %include list.html item=item
-                   %end
-		         </fieldset>
-                %end
-                 <div class="no-js">
+			  <fieldset>
+				%if entries:
+                    %if entries.pending:
+                        %for item in entries.pending:
+                          %include list.html item=item
+                        %end
+                    %end
+                    %if entries.complete:
+                        %for item in entries.complete:
+                          %include list.html item=item
+                        %end
+                    %end
+				%else:
+				    <div id="empty-message" class="alert alert-info">
+				      You have nothing to do yet. Get cracking.
+				    </div>
+				%end
+			  </fieldset>
+			  %if entries.pending:
+              <div class="no-js">
                 <hr />
                 <p><button type="submit" class="btn btn-primary">Mark As Complete</button></p>
-                </div>
+              </div>
+			  %end
 			</form>
 		  </div>
-          %else:
-          <div class="alert alert-info">
-            You have nothing to do. Get cracking.
-          </div>
-		  %end
+          
 	      <!--Body content-->
 	    </div>
 	  </div>
