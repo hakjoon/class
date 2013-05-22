@@ -1,1 +1,3 @@
-python app.py
+Run this using:
+
+$ python app.py
