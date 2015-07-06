@@ -1,5 +1,7 @@
 # Reading List
 
+## CSS
+
 ### Videos
 
 * [CSS Tools for Massive websites](https://vimeo.com/72759139) - Nicole Sullivan
@@ -7,7 +9,7 @@
 * [Your CSS is a mess](https://www.youtube.com/watch?v=C4z_9F6nfS8) - Snook
 * [OOCSS and PreProcessors](https://www.youtube.com/watch?v=GhX8iPcDSsI) - Nicole Sullivan
 
-### Foundational
+### Learnings
 
 * [Using CSS](http://www.brainjar.com/css/using/) - old but still good
 * [CSS positioning](http://www.brainjar.com/css/positioning/) - old but still good.
@@ -19,6 +21,7 @@
 * [Our Best Practices are Killing us](http://www.stubbornella.org/content/2011/04/28/our-best-practices-are-killing-us/)
 * [Progressive Enhancement](http://alistapart.com/article/understandingprogressiveenhancement)
 * [Graceful Degradation vs Progressive Enhancement](http://www.w3.org/wiki/Graceful_degradation_versus_progressive_enhancement)
+* [FlexBox](http://www.sketchingwithcss.com/flexbox-tutorial/)
 
 ### Organizational Approaches
 
@@ -26,3 +29,11 @@
 * [BEM](https://css-tricks.com/bem-101/)
 * [OOCSS](http://www.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/)
 
+
+## Javscript
+
+### Learnings
+
+* [Mozilla Learn Javascript](https://developer.mozilla.org/en-US/Learn/JavaScript)
+* [Eloquent Javascript](http://eloquentjavascript.net/)
+* [Javascript Allonge](https://leanpub.com/javascriptallongesix/read)
