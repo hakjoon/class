@@ -1,7 +1,5 @@
 # Reading List
 
-## CSS
-
 ### Videos
 
 * [CSS Tools for Massive websites](https://vimeo.com/72759139) - Nicole Sullivan
@@ -19,6 +17,7 @@
 * [Sliding Doors](http://alistapart.com/article/slidingdoors)
 * [CSS Sprites](http://alistapart.com/article/sprites)
 * [Our Best Practices are Killing us](http://www.stubbornella.org/content/2011/04/28/our-best-practices-are-killing-us/)
+* [Progressive Enhancement](http://alistapart.com/article/understandingprogressiveenhancement)
 
 ### Organizational Approaches
 
