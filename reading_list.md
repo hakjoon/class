@@ -18,6 +18,7 @@
 * [CSS Sprites](http://alistapart.com/article/sprites)
 * [Our Best Practices are Killing us](http://www.stubbornella.org/content/2011/04/28/our-best-practices-are-killing-us/)
 * [Progressive Enhancement](http://alistapart.com/article/understandingprogressiveenhancement)
+* [Graceful Degradation vs Progressive Enhancement](http://www.w3.org/wiki/Graceful_degradation_versus_progressive_enhancement)
 
 ### Organizational Approaches
 
